@@ -1,3 +1,8 @@
+const PARTICLE_VISIBILITY = 80; // alpha value of particles
+const MAX_VEL = 6; // maxspeed of particles, independent of framerate (so higher framerate will make them go faster)
+const HUE_MULTIPLIER = 500.0; // particles will multiply noise result by this to get hue
+const ACC_MULTIPLIER = 8 * Math.PI;
+
 class Particle {
   constructor() {
     this.pos = createVector(random(width), random(height));
@@ -20,8 +25,8 @@ class Particle {
 
   calculateForce = function() {
     var force = calculateForce(this.pos.x, this.pos.y);
-    this.setHue(force * hueMultiplier);
-    var vector = p5.Vector.fromAngle(force * accMultiplier);
+    this.setHue(force * HUE_MULTIPLIER);
+    var vector = p5.Vector.fromAngle(force * ACC_MULTIPLIER);
     this.acc.add(vector);
   };
 

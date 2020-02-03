@@ -1,16 +1,32 @@
 <html>
   <head>
     <script src="vendor/p5.min.js"></script>
-    <script>
-      const NOISE_SEED = 13;
-    </script>
+    <script src="hash.js"></script>
     <script src="particle.js"></script>
     <script src="sketch.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fbf2581d17.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link rel="stylesheet" href="styles.css" />
 
     <title>Oral History</title>
   </head>
   <body>
-    <div id="p5canvas"></div>
+    <div class="Page">
+      <div id="Form">
+        <div class="QuestionGroup">
+          <div id="question1" class="Question"></div>
+          <div id="input1" class="Input">
+            <i id="submit" class="fas fa-check"></i>
+          </div>
+        </div>
+      </div>
+      <div id="p5canvas"></div>
+      <div id="ResetButton">
+        <i id="reset" class="fas fa-sync-alt"></i>
+      </div>
+    </div>
   </body>
 </html>

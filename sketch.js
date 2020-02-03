@@ -1,31 +1,65 @@
 const SCALE = 0.001; // scale of noisefield
-var moveNoise = false; // is movement in noise space on
-var particleCount = 1000; // max number of particles
-const PARTICLE_VISIBILITY = 80; // alpha value of particles
+const PARTICLE_COUNT = 1000; // max number of particles
 const DELETION_SPEED = 10; // alpha value of black background drawn every frame, between 0-255, lower means slower deletion
-const MAX_VEL = 6; // maxspeed of particles, independent of framerate (so higher framerate will make them go faster)
-const hueMultiplier = 500.0; // particles will multiply noise result by this to get hue
-const accMultiplier = 8 * Math.PI;
-var particles = []; // array for particles
-var z = 0;
+let particles = []; // array for particles
+let z = 0;
 const FIELD_TRANSFORM_RATE = 0.0; // rate at which field changes (z)
 
 function setup() {
   let myCanvas = createCanvas(windowWidth, windowHeight);
   myCanvas.parent("p5canvas");
 
-  noiseSeed(NOISE_SEED);
-
-  timeLastFrame = millis();
-
   colorMode(HSB, 255);
-  textSize(15);
 
-  addParticles(300);
+  question1 = createP("enter your name...");
+  question1.parent("question1");
+
+  input1 = createInput();
+  input1.parent("input1");
+
+  // button = createButton("submit");
+  // button.parent("button");
+  // button.mousePressed(handleSubmit);
+
+  noLoop();
+}
+
+function toggleDiv(id) {
+  var div = document.getElementById(id);
+  div.style.display = div.style.display == "none" ? "flex" : "none";
+}
+
+function toggleDivVis(id) {
+  var div = document.getElementById(id);
+  const vis = div.style.visibility;
+  if (!vis || vis === "hidden") div.style.visibility = "visible";
+  else div.style.visibility = "hidden";
+}
+
+window.onload = function() {
+  document.getElementById("submit").onclick = handleSubmit;
+  document.getElementById("reset").onclick = handleReset;
+};
+
+function handleReset() {
+  particles = [];
+  noLoop();
+  background(0, 0, 0);
+  toggleDiv("Form");
+  toggleDivVis("ResetButton");
+}
+
+function handleSubmit() {
+  noiseSeed(input1.value().hashCode());
+  background(0, 0, 0);
+  loop();
+  toggleDiv("Form");
+  toggleDivVis("ResetButton");
+  // question.html("hello");
 }
 
 function draw() {
-  if (particles.length < particleCount) {
+  if (particles.length < PARTICLE_COUNT) {
     addParticles(1);
   }
 
@@ -57,3 +91,13 @@ function addParticles(num) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
+// function keyPressed() {
+//   switch (keyCode) {
+//     case 70: // F
+//       if (!fullscreen()) {
+//         fullscreen(true);
+//       }
+//       break;
+//   }
+// }

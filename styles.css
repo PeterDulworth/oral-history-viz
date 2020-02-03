@@ -1,16 +1,87 @@
+:root {
+  --txt-size: 1.8rem;
+  --txt-color: rgb(240, 240, 240);
+  --bg-color: rgb(0, 0, 0);
+}
+
 body,
 html {
   background: #000;
   color: white;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.Page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+#Form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: var(--txt-size);
+}
+
+.QuestionGroup {
+}
+
+.Question > p {
+}
+
+.Input {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.Input > i {
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.Input > input {
+  background: transparent;
+  border: none;
+  padding: 8px 8px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: rgba(11, 11, 11);
+  outline: none;
+  color: white;
+  font-size: var(--txt-size);
+}
+
+.Input > input:focus {
+  border: 2px solid white;
+}
+
+#ResetButton {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 16px;
+  font-size: var(--txt-size);
+  cursor: pointer;
+  color: rgb(50, 50, 50);
+  visibility: hidden;
 }
 
 #p5canvas {
   height: 100vh;
   width: 100vw;
-  /* border: 2px solid white; */
-  /* border-radius: 8px; */
-  /* padding: 8px; */
-  /* display: inline-block; */
 }
