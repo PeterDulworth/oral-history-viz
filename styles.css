@@ -49,9 +49,14 @@ html {
   align-items: center;
 }
 
+/* submit button */
 .Input > i {
   margin-left: 16px;
   cursor: pointer;
+}
+
+.Input > i:hover {
+  color: rgb(180, 180, 180);
 }
 
 .Input > input {

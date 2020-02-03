@@ -17,10 +17,6 @@ function setup() {
   input1 = createInput();
   input1.parent("input1");
 
-  // button = createButton("submit");
-  // button.parent("button");
-  // button.mousePressed(handleSubmit);
-
   noLoop();
 }
 
@@ -100,13 +96,3 @@ function addParticles(num) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-
-// function keyPressed() {
-//   switch (keyCode) {
-//     case 70: // F
-//       if (!fullscreen()) {
-//         fullscreen(true);
-//       }
-//       break;
-//   }
-// }
