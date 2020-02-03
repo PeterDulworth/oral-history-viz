@@ -81,6 +81,17 @@ html {
   visibility: hidden;
 }
 
+#FullScreenButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  font-size: var(--txt-size);
+  cursor: pointer;
+  color: rgb(50, 50, 50);
+  /* visibility: hidden; */
+}
+
 #p5canvas {
   height: 100vh;
   width: 100vw;

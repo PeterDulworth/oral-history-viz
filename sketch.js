@@ -38,8 +38,17 @@ function toggleDivVis(id) {
 
 window.onload = function() {
   document.getElementById("submit").onclick = handleSubmit;
-  document.getElementById("reset").onclick = handleReset;
+  document.getElementById("ResetButton").onclick = handleReset;
+  document.getElementById("FullScreenButton").onclick = handleFullScreen;
 };
+
+function handleFullScreen() {
+  if (!fullscreen()) {
+    fullscreen(true);
+  } else {
+    fullscreen(false);
+  }
+}
 
 function handleReset() {
   particles = [];
