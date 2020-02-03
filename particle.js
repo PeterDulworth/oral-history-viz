@@ -4,13 +4,12 @@ class Particle {
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.hue = 0;
-    this.slice = int(random(numberOfSlices)) * sliceDistance;
     this.prevPos = this.pos.copy();
   }
 
   update = function() {
     this.vel.add(this.acc);
-    this.vel.limit(maxspeed);
+    this.vel.limit(MAX_VEL);
     this.pos.add(this.vel);
     this.acc.mult(0);
   };
@@ -20,7 +19,7 @@ class Particle {
   };
 
   calculateForce = function() {
-    var force = calculateForce(this.pos.x, this.pos.y, this.slice);
+    var force = calculateForce(this.pos.x, this.pos.y);
     this.setHue(force * hueMultiplier);
     var vector = p5.Vector.fromAngle(force * accMultiplier);
     this.acc.add(vector);
@@ -29,7 +28,7 @@ class Particle {
   setHue = function(force) {
     if (force > 255) this.hue = force % 256;
     else this.hue = force;
-    stroke(this.hue, 255, 255, visibility);
+    stroke(this.hue, 255, 255, PARTICLE_VISIBILITY);
   };
 
   show = function() {
@@ -42,6 +41,7 @@ class Particle {
     this.prevPos.y = this.pos.y;
   };
 
+  // if particle leaves screen, randomly reset it
   edges = function() {
     if (
       this.pos.x > width ||
