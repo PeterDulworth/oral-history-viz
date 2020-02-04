@@ -2,6 +2,7 @@
   <head>
     <script src="vendor/p5.min.js"></script>
     <script src="hash.js"></script>
+    <script src="dom.js"></script>
     <script src="particle.js"></script>
     <script src="sketch.js"></script>
     <script
@@ -16,13 +17,29 @@
   <body>
     <div class="Page">
       <div id="Form">
-        <div class="QuestionGroup">
-          <div id="question1" class="Question"></div>
-          <div id="input1" class="Input">
-            <i id="submit" class="fas fa-check"></i>
+        <div id="NameQuestion">
+          <div class="Question">enter your name...</div>
+          <div class="row">
+            <input
+              type="text"
+              name="NameInput"
+              id="NameInput"
+              class="TextInput"
+            />
+            <i id="SubmitNameButton" class="fas fa-check"></i>
+          </div>
+        </div>
+
+        <div class="QuestionGroup" id="QuestionDiv">
+          <div class="Question" id="Question"></div>
+
+          <div class="Options">
+            <div id="Option1" class="Option"></div>
+            <div id="Option2" class="Option"></div>
           </div>
         </div>
       </div>
+
       <div id="p5canvas"></div>
       <div id="ResetButton">
         <i id="reset" class="fas fa-sync-alt"></i>
