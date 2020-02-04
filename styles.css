@@ -59,11 +59,11 @@ html {
   padding: 8px;
   margin: 0 8px;
   border-radius: 4px;
+  transition: transform ease 500ms;
 }
 
 .Option:hover {
-  transform: scale(1.04);
-  transition: transform ease 500ms;
+  transform: scale(1.03);
   cursor: pointer;
 }
 
